@@ -1,0 +1,96 @@
+
+/* Sub ******************************/
+.event {
+    // 당첨내역 START
+    .event__winningdetails {
+        width: 100%;
+        background-color: $background-color-04;
+        border-radius: 20px;
+        padding: 10px;
+        margin-top: 20px;
+        > .title { // 제목
+            font: {
+                family: "Jua", sans-serif;
+                size: 2rem;
+            }
+            text-align: center;
+            color: $text-color-04;
+        }
+        > .winningdetails__list { // 당첨 내역 리스트
+            margin-top: 16px;
+            > .winningdetails__item {
+                display: flex;
+                align-items: center;
+                position: relative;
+                border-bottom: 3px solid $border-color-01;
+                padding: 0 4px 8px 4px;
+                margin-bottom: 8px;
+                &:last-child {margin-bottom: 16px;}
+                > .winningdetails__image {
+                    width: 40px;
+                    height: 40px;
+                    background-color: $color-white;
+                    box-shadow: 2px 2px 5px $color-black;
+                    border-radius: 5px;
+                    padding: 4px;
+                }
+                > .winningdetails__title {
+                    font: {family: "netmarbleM", sans-serif; weight: bold;}
+                    margin-left: 20px;
+                }
+                > .button {
+                    display: block;
+                    position: absolute;
+                    right: 4px;
+                    height: 40px;
+                    font: {
+                        family: "Do Hyeon", sans-serif;
+                        size: 1.125rem;
+                    }
+                    line-height: 1;
+                    background-color: $button-color-02;
+                    border: 2px solid $color-black;
+                    border-radius: 30px;
+                    box-shadow: 0 4px $color-black;
+                    padding: 0 36px 0 18px;
+                    &-disabled {background-color: $color-white; cursor: default;}
+                    &:after {
+                        content: "";
+                        display: inline-block;
+                        position: absolute;
+                        top: 50%;
+                        right: 8px;
+                        width: 16px;
+                        height: 16px;
+                        background: url("../images/chevron.png") no-repeat center / 100%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+    }
+    // 당첨내역 END
+}
+
+// Desktop
+@media all and (min-width: 1366px) {
+    .event {
+        // 당첨내역 START
+        .event__winningdetails {
+            width: 50%;
+            padding: 10px 40px;
+            margin-top: 0;
+            > .winningdetails__list { // 당첨 내역 리스트
+                margin-top: 16px;
+                > .winningdetails__item {
+                    padding: 0 20px 8px 20px;
+                    > .winningdetails__title {margin-left: 30px;}
+                    > .button {
+                        right: 20px;
+                    }
+                }
+            }
+        }
+        // 당첨내역 END
+    }
+}

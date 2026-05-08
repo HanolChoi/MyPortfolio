@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BNF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+    <meta name="keywords" content="BNF" />
+    <meta name="description" content="BUBBLY AND FRIENDS" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="BNF" />
+    <meta property="og:description" content="BUBBLY AND FRIENDS" />
+    <meta property="og:image" content="../resources/images/sns-thumbnail.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+
+    <link rel="icon" href="../resources/images/svg/favicon.svg" />
+    <link rel="shortcut icon" href="../resources/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../resources/images/favicon.png" type="image/png" sizes="16x16" />
+
+    <link rel="stylesheet" type="text/css" href="../resources/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+
+    <script type="text/javascript" src="../resources/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <div class="header-inner">
+        <div class="text-wrap">
+          <h1 class="logo">
+            <a href="#"><img src="../resources/images/logo.png" alt="BNF" /></a>
+          </h1>
+          <!-- <span class="txt">BUBBLY AND FRIENDS</span> -->
+          <button id="click-me"><img src="../resources/images/svg/click_me.svg" alt="click me!" /></button>
+          <audio src="../resources/video/Bubbly_And_Frineds.mp3" loop id="logo-song"></audio>
+        </div>
+        <div class="text-wrap">
+          <a id="roadmap" href="../resources/docs/BUBBLY.pdf" target="_blank" download="BUBBLY.pdf" title="ROADMAP">ROADMAP</a>
+          <div class="sns">
+            <ul>
+              <li>
+                <a href="https://discord.gg/eGBJZ8h4vG" target="_blank">
+                  <img src="../resources/images/svg/discord.svg" alt="discord" class="discord" />
+                  <span>discord</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@bnf_tv/video/7127253549276351746?is_copy_url=1&is_from_webapp=v1&lang=ko-KR" target="_blank">
+                  <img src="../resources/images/svg/tiktok.svg" alt="tiktok" class="tiktok" />
+                  <span>tiktok</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/ProjectBubbly" target="_blank">
+                  <img src="../resources/images/svg/twitter.svg" alt="twitter" class="twitter" />
+                  <span>twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=-wYThIqtTnE" target="_blank">
+                  <img src="../resources/images/svg/youtube.svg" alt="youtube" class="youtube" />
+                  <span>youtube</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="lang">
+            <a href="#" class="selected"><span>KO</span></a>
+            <div class="lists">
+              <ul>
+                <li class="on"><a href="./ko">KO</a></li>
+                <li><a href="../">EN</a></li>
+                <li><a href="../sp">SP</a></li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="cw">CONNECT WALLET</a>
+          <button id="menu-btn"></button>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    <!-- content -->
+    <div id="content">
+      <section class="sec1">
+        <div id="player"></div>
+        <script>
+          var $clickMe = $("#click-me");
+          var logoSongMp3 = $("#logo-song")[0];
+          var tag = document.createElement("script");
+          var playing = false;
+
+          logoSongMp3.onpause = function () {
+            playing = false;
+          };
+          logoSongMp3.onplaying = function () {
+            playing = true;
+          };
+          logoSongMp3.volume = 0.25;
+
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName("script")[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+          var player;
+          function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+              width: "100",
+              videoId: "-wYThIqtTnE",
+              playerVars: { autoplay: 0, rel: 0, showinfo: 0, modestbranding: 1, playsinline: 1, showinfo: 0, rel: 0, controls: 1, loop: 1, mute: 0, playlist: "-wYThIqtTnE" },
+              events: {
+                onReady: onPlayerReady,
+                onStateChange: onPlayerStateChange
+              }
+            });
+          }
+          var youtubeReady = false;
+          function onPlayerReady(event) {
+            // event.target.playVideo();
+            // player.mute();
+            youtubeReady = true;
+          }
+          function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+              if (playing && $clickMe.hasClass("playing")) {
+                $clickMe.addClass("paused");
+                logoSongMp3.pause();
+              }
+            }
+
+            if (event.data == YT.PlayerState.PAUSED) {
+              if (!playing && $clickMe.hasClass("playing")) {
+                $clickMe.removeClass("paused");
+                logoSongMp3.play();
+              }
+            }
+          }
+          function pauseVideo() {
+            if (youtubeReady) {
+              player.pauseVideo();
+            }
+          }
+          function stopVideo() {
+            if (youtubeReady) {
+              player.stopVideo();
+            }
+          }
+          function playVideo() {
+            if (youtubeReady) {
+              player.playVideo();
+            }
+          }
+
+          $clickMe.click(function () {
+            if (!$(this).hasClass("paused")) {
+              $(this).toggleClass("playing");
+            }
+
+            if ($(this).hasClass("paused")) {
+              $(this).removeClass("paused");
+            }
+
+            if (!playing) {
+              logoSongMp3.play();
+              pauseVideo();
+            }
+
+            if (playing) {
+              logoSongMp3.pause();
+            }
+          });
+        </script>
+      </section>
+      <section class="sec2">
+        <div class="content-inner">
+          <div class="title ani1">
+            <h2 class="step1">
+              <span>BUBBLY UNIVERSE</span>
+            </h2>
+            <h2 class="step2">
+              <span>PROLOGUE</span>
+            </h2>
+          </div>
+          <video src="../resources/video/planet7_1.mp4" autoplay loop muted playsinline class="ani2"></video>
+          <div class="p-box ani2">
+            <p>
+              <span>
+                먼 옛날 Nevaeh 라는 행성이 존재했다. 그 행성은 언제나 기쁨과 행복으로 가득했고 그 에너지는 강력했다.<br />
+                사람들은 그 에너지를 Lon이라 불렀다. Lon은 매일 매일 조금씩 모여 Nevaeh 행성을 더욱 풍요롭게 했으며 행성 한 가운데로 Lon이 모여 Bu라는 작은 알의 형태를 갖추게 되었다. 그리고 Bu는 점점
+                커져갔다.
+              </span>
+            </p>
+            <p>
+              <span>
+                어느 평온한 오후 갑자기 하늘이 어두워졌다. 먹구름이 하늘을 뒤덮고 번개가 치기 시작했다.<br />
+                사람들은 처음으로 두려움이라는 감정을 느꼈다.
+              </span>
+            </p>
+            <p>
+              <span>
+                Nevaeh 행성에는 Lon에 의해 거대한 보호막이 존재했다. 그런데 어떠한 이유인지 그 보호막에 틈이 생긴 것이다.<br />
+                그 틈을 통해 어둠의 에너지가 흘러들어오기 시작했다. 그리고 그 에너지들이 조금씩 모여 Natas 라는 악의 존재가 태어났다.
+              </span>
+            </p>
+            <p>
+              <span>
+                Natas는 Nevaeh 행성의 Lon을 흡수하기 시작했다.<br />
+                그리고는 자신의 악한 에너지, 곧 분노와 미움, 시기와 질투, 두려움과 아픔의 에너지를 뿜어내기 시작했다.<br />
+                Nevaeh 행성의 사람들은 점점 병들기 시작했다. 사람들은 서로 미워하고 질투하며, 서로를 불신하고 두려움에 떨기 시작했다.
+              </span>
+            </p>
+            <p>
+              <span>
+                아직 병들지 않은 마을의 Master들은 Bu를 Nevaeh 행성의 최후의 유산이라 생각하며 그것을 지키기 위해 마지막 힘을 다해 우주로 보냈다. Bu는 그렇게 우주를 떠돌다 BUBBLY라는 존재로, Nevaeh
+                행성 사람들의 선한 에너지의 결정체로 태어나게 된다.
+              </span>
+            </p>
+            <p>
+              <span>
+                그렇게 BUBBLY는 우주를 떠돌다 병든 지구를 발견하게 된다. BUBBLY는 Nevaeh 행성의 역사를 모르고 태어났다.<br />
+                하지만 그의 마음 속에는 Nevaeh 행성과 같이 병든 지구를 지켜야한다는 생각이 무의식 속에 자리 잡고 있었다.<br />
+                그리고 BUBBLY는 병든 지구를 구하기 위해 홀로 지구에 들어간다.
+              </span>
+            </p>
+          </div>
+          <button class="more ani2">Read more</button>
+        </div>
+      </section>
+      <section class="sec3">
+        <div class="content-inner">
+          <h3 class="overflow"><span class="ani1">SEASON 01</span></h3>
+          <div class="lists">
+            <ul>
+              <li class="step0">
+                <span class="step-txt"><span class="ani1">1st STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/C2E_data2.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">C2E</span>
+                      </div>
+                      <div class="text-wrap">
+                        <span class="step1">(커뮤니티 투 언 = 커뮤니티 활동을 통해 수익을 창조하다!)</span>
+                      </div>
+                    </h2>
+                    <p class="p2 overflow step1">
+                      <span>C2E는 우리의 핵심 가치입니다.</span>
+                    </p>
+                    <p class="p2 overflow step2">
+                      <span>다양한 커뮤니티 활동과 이벤트를 통해 C2E를 프로젝트를 저희와 함께 만들어가 주세요 :)</span>
+                    </p>
+                    <p class="p2 overflow step3">
+                      <span>모든 분들의 많은 참여를 통해 그동안 경험하지 못한 최초의 C2E 프로젝트에 적극적인 참여 부탁드립니다!</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="step1">
+                <span class="step-txt"><span class="ani1">1st STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/social_data.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step1">MEDIA </span>
+                        <span class="step2">CONTENTS</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow"><span>유튜브, 틱톡, 애니메이션 SNS 채널</span></p>
+                    <p class="p2 overflow">
+                      <span>유튜브에서 틱톡까지 공유 그리고 만들기<br />애니메이션의 대한 창의적인 가능성을 잠금해제!</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="step2">
+                <span class="step-txt"><span class="ani1">2nd STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/walk_data2.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">BUBBLY </span>
+                        <span class="step1">MINTING</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow"><span>BUBBLY 민팅관련 거버넌스 시스템이 시작됩니다!</span></p>
+                    <p class="p2 overflow">
+                      <span>5000개 버블리 NFT 컬렉션이 발행됩니다!<br />BUBBLY NFT 콜렉션들 관해서 공지될 예정입니다!<br />BnF 유니버스에 참여하여 특별한 홀더 혜택을 받아가세요!</span>
+                    </p>
+                    <a href="#" target="_blank" class="more">OpenSea</a>
+                  </div>
+                </div>
+              </li>
+              <li class="step3">
+                <span class="step-txt"><span class="ani1">3rd STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/coin_data.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step1">G.I </span>
+                        <span class="step2">캠페인</span>
+                      </div>
+                      <div class="text-wrap">
+                        <span class="step1">(선한 영향력)</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow">
+                      <span class="span-wrap">
+                        <span>Y.S.S 프로젝트<br />('너는 정말 특별해' = You are so special)</span>
+                        <span>H.M.H 프로젝트<br />('나의 손을 잡아' = Hold My Hand)</span>
+                      </span>
+                    </p>
+                    <p class="p2 overflow">
+                      <span>
+                        BnF는 G.I 캠페인으로 알려진 '선한 영향력' 캠페인을 제공드립니다.<br />
+                        저희는 모든 한 사람 한 사람이 어떻게든 특별하다고 생각하고 믿고있습니다:)<br />
+                        우리의 관심이 필요한 이들에게 다가가 선한 영향력에 발자취를 함께 만들어가시죠!
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="step4">
+                <span class="step-txt"><span class="ani1">4th STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/gamepad_data.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step1">플랫폼 </span>
+                        <span class="step2">개발 및</span>
+                      </div>
+                      <div class="text-wrap">
+                        <span class="step1">생태계 </span>
+                        <span class="step2">조성</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow">
+                      <span>BnF 게임 마켓 플랫폼 개발</span>
+                    </p>
+                    <p class="p2 overflow">
+                      <span>혁신에 대한 BnF의 선의는 우리 고유의 유니버스 플랫폼을 만드는데 까지 확장됩니다!</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="sec4">
+        <div class="content-inner">
+          <h3 class="overflow"><span class="ani1">SEASON 02</span></h3>
+          <p class="overflow"><span class="ani1">COMING SOON</span></p>
+          <div class="player-wrap ani2">
+            <lottie-player src="../resources/json/card2_data.json" background="transparent" speed="1" loop autoplay class="player ani2"></lottie-player>
+          </div>
+        </div>
+      </section>
+      <section class="sec5">
+        <div class="content-inner">
+          <h2 class="overflow"><span class="ani1">FAQ</span></h2>
+          <ul class="faq-lists ani">
+            <li>
+              <h4>
+                <a href="#">BUBBLY는 어떤 프로젝트인가요?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BUBBLY는 BnF(BUBBLY AND FRIENDS) LABS의 첫번째 프로젝트로서 10,000개의 BnF 제네시스 NFT 입니다.</p>
+                <p>
+                  BnF LABS는 기존 NFT의 문제점을 보완하여 단순 수익 사업이 아닌 긍정의 에너지로 선한 영향력을 끼치며 선한 사업을 구축하여 그것이 선순환을 이룰 수 있도록 다양한 캠페인과 프로젝트를
+                  기획하고 있습니다.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">BnF LABS가 분석하는 현 NFT 시장 및 문제점은?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS는 현재 NFT 시장을 추후 NFT 시장의 1% 정도로 바라보고 있습니다. NFT와 AR/VR, 메타버스 결합 후의 시장은 0.1% 정도 진행 되었다고 보고 있습니다.</p>
+                <p>이러한 현재 NFT 시장을 1세대 NFT 시장으로 봤을 때, 시장에서는 다양한 문제점들이 제기되고 있습니다.</p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">BnF LABS의 NFT PROJECT 및 타사 NFT 대비 강점은?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS는 현 1세대 NFT 시장에서 발생하는 다양한 문제점들을 해결하고자 고안한 1.5세대 혹은 2세대의 NFT PROJECT 입니다.</p>
+                <p>
+                  BnF LABS는 대부분의 현재 NFT의 가치를 ‘VIP 가치’로 바라보고 있습니다.<br />
+                  BnF LABS는 BnF NFT의 가치를 ‘단순 VIP 가치’로 바라보는 것이 아닌, 지속적이며 의미있는 가치를 함께 만들고 BnF의 브랜딩과 소속감을 높이기 위해 다양한 캠페인과 프로젝트를 준비했습니다.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">BnF LABS의 캠페인과 프로젝트는 어떤 것들이 있나요?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS는 긍정의 에너지로 선한 영향력을 끼친다는 BUBBLY의 가장 중심적인 가치관을 실현하고자 다양한 캠페인을 준비하고 있습니다.</p>
+                <p>
+                  - Y.S.S(You are So Special) 캠페인<br />
+                  BnF LABS는 재능이 있지만 환경이 받쳐주지 못 했던 많은 이들과 함께하며, 단순 경쟁 프로그램 형태의 예능이 아닌, 공감과 사랑, 격려와 멘토링을 담은 진솔한 다큐형 예능을 준비하고
+                  있습니다.
+                </p>
+                <p>
+                  - H.M.H(Hold My Hand) 캠페인<br />
+                  BnF LABS는 단순한 재화의 기부가 아닌, 직접 몸으로 힘들고 어려운 상황에 있는 이들을 도우며, 그들과 함께하는 마음을 나누는 진솔하고 진정성 있는 시간들을 BnF의 컨텐츠에 담아 선한
+                  영향력이 선순환 될 수 있도록 준비하고 있습니다.
+                </p>
+                <p>
+                  - BnF TV<br />
+                  이 모든 것 들이 BnF TV의 채널을 통해 전 세계에 퍼져나갈 것입니다. BnF TV는 이뿐만 아니라 명언 / 트렌디 쇼츠 컨텐츠 / 코믹 쇼츠 컨텐츠 등 바쁜 일상에 지친 현대인을 위해 짧은
+                  시간일지라도 작은 웃음, 휴식, 격려, 위로를 줄 수 있는 다양한 컨텐츠를 준비하고 있습니다.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">BnF LABS의 최종 목표는 무엇인가요?</a>
+              </h4>
+              <div class="faq-content">
+                <p>
+                  BnF LABS는 궁극적으로 ‘사랑’을 알고 ‘실천’하는, 긍정적이고 선한 영향력을 가진 사람들의 커뮤니티입니다. BUBBLY는 힘들고 지친 사람들에게 사랑와 위로로 함께 하며, 기쁨도 슬픔도 함께
+                  나누는 우리들의 친구입니다. 또한 BUBBLY는 사람들뿐만 아니라 동물과 환경을 아끼고 돌봅니다.
+                </p>
+                <p>BnF LABS는 BUBBLY의 가치관가 맞는, 선한 마음을 가지고 있는 누구나와 친구가 되길 원하며 그렇게 BnF LABS의 커뮤니티와 생태계는 점점 더 큰 빛을 내며 밝아질 것입니다.</p>
+                <p>사람들은 이제 곧 전 세계 곳곳에서 BUBBLY의 긍정의 에너지를 보게 될 것이며 선한 영향력을 통해 이뤄지는 놀라운 일들을 보게 될 것 입니다.</p>
+                <p>BUBBLY는 최초의, 최고의, 최대의, 최선의 유틸리티(온라인, 오프라인, 메타버스 등), 그리고 무엇보다 ‘선한 NFT 프로젝트'가 될 것 입니다.</p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">BUBBLY의 홀더혜택은 어떻게 되나요?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS는 NFT 프로젝트, MEDIA, VC, 인큐베이팅 등 여러 분야의 사업을 합니다.</p>
+                <p>
+                  BnF LABS의 제네시스 NFT인 BUBBLY의 홀더는 BnF LABS 앞으로 발행되고 진행되는 모든 혜택과 권리에 대해 우선권을 갖는 스페셜 멤버가 됩니다.<br />
+                  지적재산권 및 권리는 모두 소유자에게 넘어갑니다.
+                </p>
+                <p>BUBBLY의 세계관 확장으로 추가 발행되는 NFT 프로젝트에 대해 모두 에어드랍을 받게 됩니다.</p>
+                <p>
+                  BUBBLY의 홀더는 BnF LABS의 수익사업의 수익을 정기적으로 분배 받게 되며, 온/오프라인의 모든 아이템과 혜택을 받게 될 것입니다.<br />
+                  ex) 호텔 & 리조트, 레스토랑, 카페, 온라인쇼핑 등 민팅 후 세부사항 공개
+                </p>
+                <p>
+                  인큐베이팅에 지원할 수 있습니다.<br />
+                  BUBBLY 세계관 내의 모든 프로젝트에서 재능과 열정이 있는 멤버는 프로젝트에 직접 참여할 수 있습니다. BnF LABS는 자신이 가지고 있는 재능을 최대한 발휘 할 수 있도록 홀더의 프로젝트 또는
+                  아이디어를 검토하고 기획, 개발, VC까지 서포트합니다.<br />
+                  MCN 사업에 크리에이터 1순위는 BUBBLY 홀더에게 우선권한을 부여합니다.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">BUBBLY의 민팅 날짜와 가격은 어떻게 되나요?</a>
+              </h4>
+              <div class="faq-content">
+                <p>To be announced</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <!-- //content -->
+
+    <!-- footer -->
+    <footer id="footer">
+      <div class="content-inner">
+        <h1 class="logo">
+          <a href="#"><img src="../resources/images/logo.png" alt="BNF" /></a>
+        </h1>
+        <div class="text-box">
+          <p>EMAIL. <span>bubblyandfriends@gmail.com</span></p>
+        </div>
+        <div class="sns">
+          <ul>
+            <li>
+              <a href="https://discord.gg/eGBJZ8h4vG" target="_blank">
+                <img src="../resources/images/svg/discord.svg" alt="discord" class="discord" />
+                <span>discord</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@bnf_tv/video/7127253549276351746?is_copy_url=1&is_from_webapp=v1&lang=ko-KR" target="_blank">
+                <img src="../resources/images/svg/tiktok.svg" alt="tiktok" class="tiktok" />
+                <span>tiktok</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/ProjectBubbly" target="_blank">
+                <img src="../resources/images/svg/twitter.svg" alt="twitter" class="twitter" />
+                <span>twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=-wYThIqtTnE" target="_blank">
+                <img src="../resources/images/svg/youtube.svg" alt="youtube" class="youtube" />
+                <span>youtube</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- //footer -->
+  </body>
+</html>

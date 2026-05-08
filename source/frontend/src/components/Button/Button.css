@@ -1,0 +1,47 @@
+button {
+    border: none;
+    outline: none;
+    position: relative;
+}
+button:hover {cursor: pointer;}
+button::before {
+    background: currentColor;
+    content: "";
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+button:hover::before {opacity: 0.08;}
+button:active::before {opacity: 0.16;}
+button:focus-visible::before {opacity: 0.12;}
+
+.button--medium {
+    border-radius: 8px;
+    font-size: 16px;
+    height: 44px;
+    padding: 0 16px;
+}
+
+.button--primary {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+}
+.button--secondary {
+    background: var(--color-secondary);
+    color: var(--color-on-secondary);
+}
+.button--danger {
+    background: var(--color-error);
+    color: var(--color-on-error);
+}
+.button--ghost {
+    background: transparent;
+    color: var(--color-on-surface);
+}
+.button--outline {
+    background: transparent;
+    border: 1px solid var(--color-outline-variant);
+    color: var(--color-on-surface);
+}

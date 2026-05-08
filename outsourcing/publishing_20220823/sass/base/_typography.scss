@@ -1,0 +1,125 @@
+
+/* Typography ******************************/
+/* Pretendard - static */
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 100;
+        display: swap;
+    }
+    src: local("Pretendard Thin"), local("Pretendard-Thin"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-Thin.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-Thin.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 200;
+        display: swap;
+    }
+    src: local("Pretendard ExtraLight"), local("Pretendard-ExtraLight"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-ExtraLight.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-ExtraLight.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 300;
+        display: swap;
+    }
+    src: local("Pretendard Light"), local("Pretendard-Light"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-Light.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-Light.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 400;
+        display: swap;
+    }
+    src: local("Pretendard Regular"), local("Pretendard-Regular"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-Regular.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-Regular.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 500;
+        display: swap;
+    }
+    src: local("Pretendard Medium"), local("Pretendard-Medium"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-Medium.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 600;
+        display: swap;
+    }
+    src: local("Pretendard SemiBold"), local("Pretendard-SemiBold"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-SemiBold.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 700;
+        display: swap;
+    }
+    src: local("Pretendard Bold"), local("Pretendard-Bold"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-Bold.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 800;
+        display: swap;
+    }
+    src: local("Pretendard ExtraBold"), local("Pretendard-ExtraBold"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-ExtraBold.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-ExtraBold.woff") format("woff");
+}
+@font-face {
+    font: {
+        family: 'Pretendard';
+        style: normal;
+        weight: 900;
+        display: swap;
+    }
+    src: local("Pretendard Black"), local("Pretendard-Black"),
+         url("../fonts/Pretendard/static/woff2/Pretendard-Black.woff2") format("woff2"),
+         url("../fonts/Pretendard/static/woff/Pretendard-Black.woff") format("woff");
+}
+/* Pretendard - variable */
+@font-face {
+    font: {
+        family: 'Pretendard Variable';
+        style: normal;
+        weight: 45 920;
+        display: swap;
+    }
+    src: local("Pretendard Variable"), local("Pretendard-Variable"),
+         url("../fonts/Pretendard/variable/woff2/PretendardVariable.woff2") format("woff2");
+}
+/* Rozha One */
+@font-face {
+    font: {
+        family: 'Rozha One';
+        style: normal;
+        weight: 400;
+        display: swap;
+    }
+    src: local("Rozha One"), local("Rozha-One"),
+         url("../fonts/Rozha_One/RozhaOne-Regular.ttf") format("woff2"),
+         url("../fonts/Rozha_One/RozhaOne-Regular.ttf") format("woff");
+}

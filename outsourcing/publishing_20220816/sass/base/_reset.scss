@@ -1,0 +1,27 @@
+
+/* Reset ******************************/
+* {
+    font: {
+        family: 'Noto Sans KR';
+        size: 16px;
+        weight: 400;
+    };
+    letter-spacing: -0.03rem;
+    line-height: 1.75;
+    padding: 0;
+    margin: 0;
+}
+body {background-color: $background-color-01; overflow-x: hidden;}
+header, main, article, section, aside, footer, nav, div, span, ul, ol, li, a, p, form, select, option, input, details{box-sizing: border-box;}
+ul, ol, li {list-style: none;}
+button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: $color-black;
+    cursor: pointer;
+}

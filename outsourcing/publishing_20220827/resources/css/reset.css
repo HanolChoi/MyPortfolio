@@ -1,0 +1,330 @@
+@charset "UTF-8";
+
+/* a타이틀고딕1 */
+@font-face {
+  font-family: "a타이틀고딕1";
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/a-titleGhothic1.eot);
+  src: url(../fonts/a-titleGhothic1.eot?#iefix) format("embedded-opentype"), url(../fonts/a-titleGhothic1.woff2) format("woff2"), url(../fonts/a-titleGhothic1.woff) format("woff");
+}
+
+/* a타이틀고딕3 */
+@font-face {
+  font-family: "a타이틀고딕3";
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/a-titleGhothic3.eot);
+  src: url(../fonts/a-titleGhothic3.eot?#iefix) format("embedded-opentype"), url(../fonts/a-titleGhothic3.woff2) format("woff2"), url(../fonts/a-titleGhothic3.woff) format("woff");
+}
+
+/* a피라미드 */
+@font-face {
+  font-family: "a피라미드";
+  font-style: normal;
+  font-weight: normal;
+  src: url(../fonts/a-pyramid.eot);
+  src: url(../fonts/a-pyramid.eot?#iefix) format("embedded-opentype"), url(../fonts/a-pyramid.woff2) format("woff2"), url(../fonts/a-pyramid.woff) format("woff");
+}
+
+/* Noto Sans KR */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format("woff2"), url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format("woff"),
+    url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format("opentype");
+}
+
+/* reset */
+html {
+  font-size: 1em;
+  width: 100%;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  color: #fff;
+  font-family: "a타이틀고딕3", Helvetica, "Apple SD Gothic Neo", sans-serif;
+  vertical-align: baseline;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+button,
+input[type="submit"],
+input[type="reset"],
+button,
+input[type="tel"],
+button,
+input[type="password"],
+input[type="url"],
+input[type="search"],
+input[type="file"],
+button,
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  font-family: "a타이틀고딕3", Helvetica, "Apple SD Gothic Neo", sans-serif;
+  font-size: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-box-sizing: border-box;
+}
+body {
+  position: relative;
+  background: #171717;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #fff;
+  word-wrap: break-word;
+  word-break: keep-all;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  overflow: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+  font-size: 0;
+}
+blockquote,
+q {
+  quotes: none;
+}
+input:focus,
+button:focus {
+  border: none;
+}
+table {
+  border-spacing: 0;
+}
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a:focus {
+  outline: none !important;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+:invalid {
+  box-shadow: none;
+}
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+button::-moz-focus-inner {
+  margin-top: -2px;
+  margin-bottom: -2px;
+  padding: 0;
+  border: 0;
+}
+input::-moz-focus-inner {
+  margin-top: -2px;
+  margin-bottom: -2px;
+  padding: 0;
+  border: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+button:hover {
+  cursor: pointer;
+}
+button {
+  background: transparent;
+}
+textarea:focus {
+  outline: none;
+}
+:focus {
+  outline: none;
+}
+html {
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html.scrollHidden {
+  overflow: hidden;
+}
+input[type="text"]::-ms-clear {
+  display: none;
+}
+input[type="email"]::-ms-clear {
+  display: none;
+}
+input[type="number"]::-ms-clear {
+  display: none;
+}
+sup {
+  font-size: 0.75em;
+  vertical-align: top;
+}
+sub {
+  font-size: 0.75em;
+  vertical-align: bottom;
+}
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  font-size: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-box-sizing: border-box;
+}
+select::-ms-expand {
+  display: none;
+}
+::-webkit-file-upload-button {
+  cursor: pointer;
+}
+.ab-text {
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+}
+.blind {
+  text-indent: -9999px;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+}

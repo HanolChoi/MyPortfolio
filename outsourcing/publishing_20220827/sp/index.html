@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BNF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+    <meta name="keywords" content="BNF" />
+    <meta name="description" content="BUBBLY AND FRIENDS" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="BNF" />
+    <meta property="og:description" content="BUBBLY AND FRIENDS" />
+    <meta property="og:image" content="../resources/images/sns-thumbnail.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+
+    <link rel="icon" href="../resources/images/svg/favicon.svg" />
+    <link rel="shortcut icon" href="../resources/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../resources/images/favicon.png" type="image/png" sizes="16x16" />
+
+    <link rel="stylesheet" type="text/css" href="../resources/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+
+    <script type="text/javascript" src="../resources/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="../resources/js/common.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <div class="header-inner">
+        <div class="text-wrap">
+          <h1 class="logo">
+            <a href="#"><img src="../resources/images/logo.png" alt="BNF" /></a>
+          </h1>
+          <!-- <span class="txt">BUBBLY AND FRIENDS</span> -->
+          <button id="click-me"><img src="../resources/images/svg/click_me.svg" alt="click me!" /></button>
+          <audio src="../resources/video/Bubbly_And_Frineds.mp3" loop id="logo-song"></audio>
+        </div>
+        <div class="text-wrap">
+          <a id="roadmap" href="../resources/docs/BUBBLY.pdf" target="_blank" download="BUBBLY.pdf" title="ROADMAP">ROADMAP</a>
+          <div class="sns">
+            <ul>
+              <li>
+                <a href="https://discord.gg/eGBJZ8h4vG" target="_blank">
+                  <img src="../resources/images/svg/discord.svg" alt="discord" class="discord" />
+                  <span>discord</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@bnf_tv/video/7127253549276351746?is_copy_url=1&is_from_webapp=v1&lang=ko-KR" target="_blank">
+                  <img src="../resources/images/svg/tiktok.svg" alt="tiktok" class="tiktok" />
+                  <span>tiktok</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/ProjectBubbly" target="_blank">
+                  <img src="../resources/images/svg/twitter.svg" alt="twitter" class="twitter" />
+                  <span>twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=-wYThIqtTnE" target="_blank">
+                  <img src="../resources/images/svg/youtube.svg" alt="youtube" class="youtube" />
+                  <span>youtube</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="lang">
+            <a href="#" class="selected"><span>SP</span></a>
+            <div class="lists">
+              <ul>
+                <li><a href="../ko">KO</a></li>
+                <li><a href="../">EN</a></li>
+                <li class="on"><a href="./sp">SP</a></li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="cw">CONNECT WALLET</a>
+          <button id="menu-btn"></button>
+        </div>
+      </div>
+    </header>
+    <!-- //header -->
+    <!-- content -->
+    <div id="content">
+      <section class="sec1">
+        <div id="player"></div>
+        <script>
+          var $clickMe = $("#click-me");
+          var logoSongMp3 = $("#logo-song")[0];
+          var tag = document.createElement("script");
+          var playing = false;
+
+          logoSongMp3.onpause = function () {
+            playing = false;
+          };
+          logoSongMp3.onplaying = function () {
+            playing = true;
+          };
+          logoSongMp3.volume = 0.25;
+
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName("script")[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+          var player;
+          function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+              width: "100",
+              videoId: "-wYThIqtTnE",
+              playerVars: { autoplay: 0, rel: 0, showinfo: 0, modestbranding: 1, playsinline: 1, showinfo: 0, rel: 0, controls: 1, loop: 1, mute: 0, playlist: "-wYThIqtTnE" },
+              events: {
+                onReady: onPlayerReady,
+                onStateChange: onPlayerStateChange
+              }
+            });
+          }
+          var youtubeReady = false;
+          function onPlayerReady(event) {
+            // event.target.playVideo();
+            // player.mute();
+            youtubeReady = true;
+          }
+          function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+              if (playing && $clickMe.hasClass("playing")) {
+                $clickMe.addClass("paused");
+                logoSongMp3.pause();
+              }
+            }
+
+            if (event.data == YT.PlayerState.PAUSED) {
+              if (!playing && $clickMe.hasClass("playing")) {
+                $clickMe.removeClass("paused");
+                logoSongMp3.play();
+              }
+            }
+          }
+          function pauseVideo() {
+            if (youtubeReady) {
+              player.pauseVideo();
+            }
+          }
+          function stopVideo() {
+            if (youtubeReady) {
+              player.stopVideo();
+            }
+          }
+          function playVideo() {
+            if (youtubeReady) {
+              player.playVideo();
+            }
+          }
+
+          $clickMe.click(function () {
+            if (!$(this).hasClass("paused")) {
+              $(this).toggleClass("playing");
+            }
+
+            if ($(this).hasClass("paused")) {
+              $(this).removeClass("paused");
+            }
+
+            if (!playing) {
+              logoSongMp3.play();
+              pauseVideo();
+            }
+
+            if (playing) {
+              logoSongMp3.pause();
+            }
+          });
+        </script>
+      </section>
+      <section class="sec2">
+        <div class="content-inner">
+          <div class="title ani1">
+            <h2 class="step1">
+              <span>BUBBLY UNIVERSE</span>
+            </h2>
+            <h2 class="step2">
+              <span>PROLOGUE</span>
+            </h2>
+          </div>
+          <video src="../resources/video/planet7_1.mp4" autoplay loop muted playsinline class="ani2"></video>
+          <div class="p-box ani2">
+            <p>
+              <span>
+                Había una vez un planeta llamado Nevaeh. El planeta siempre estaba lleno de alegría y felicidad, y su energía era poderosa.<br />
+                Las personas llamaban a esa energía Lon. Lon se acumulaba poco a poco cada día y enriquecía al planeta Nevaeh.<br />
+                En el centro del planeta se reunió Lon para tomar la forma de un pequeño huevo llamado Bu. Con el tiempo, Bu empezó a hacerse más y más grande.
+              </span>
+            </p>
+            <p>
+              <span>
+                En una tarde tranquila, el cielo se oscureció de repente. Las nubes oscuras cubrieron el cielo y los relámpagos comenzaron a caer.<br />
+                Por primera vez, las personas sintieron lo que es tener temor.
+              </span>
+            </p>
+            <p>
+              <span>
+                En el planeta Nevaeh existía una enorme capa de protección creado por Lon. Sin embargo, por alguna razón, una brecha apareció en la capa.<br />
+                La energía oscura comenzó a fluir a través de la brecha. Las energías se reunieron poco a poco para dar a luz a un ser malvado llamado Natas.
+              </span>
+            </p>
+            <p>
+              <span>
+                Natas comenzó a absorber Lon del planeta Nevaeh.<br />
+                Luego de absorber Lon, Natas comenzó a irradiar su energía maligna: ira, odio, envidia, celos, miedo y dolor.<br />
+                Como consecuencia de esto, las personas del planeta Nevaeh comenzaron a enfermarse. Ellos empezaron a odiarse y a tener celos entre ellos mismos, a desconfiar unos de otros y sentir
+                temor.
+              </span>
+            </p>
+            <p>
+              <span>
+                Los Maestros de la aldea, que aún no estaban enfermos, pensaron a Bu como el último legado del planeta Nevaeh.<br />
+                Así que lo envíaron al espacio con todo lo posible para protegerlo.<br />
+                Bu deambuló por el universo para al final nacer como un ser llamado BUBBLY, resultado de la buena energía de las personas del planeta Nevaeh.
+              </span>
+            </p>
+            <p>
+              <span>
+                BUBBLY vaga por el espacio y descubre un planeta enfermo, Tierra. BUBBLY nació sin conocer la historia del planeta Nevaeh.<br />
+                Sin embargo, en su mente, la idea de proteger un planeta enfermo como el planeta Nevaeh estaba arraigada en su subconciencia.<br />
+                Acompañado de nadie más, BUBBLY entra a la Tierra para salvar a la Tierra de su enfermedad.
+              </span>
+            </p>
+          </div>
+          <button class="more ani2">MÁS</button>
+        </div>
+      </section>
+      <section class="sec3">
+        <div class="content-inner">
+          <h3 class="overflow"><span class="ani1">SEASON 01</span></h3>
+          <div class="lists">
+            <ul>
+              <li class="step0">
+                <span class="step-txt"><span class="ani1">1st STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/C2E_data2.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">C2E</span>
+                      </div>
+                      <div class="text-wrap">
+                        <span class="step1">(Community to Earn = ¡Genera ingresos a través de actividades comunitarias!)</span>
+                      </div>
+                    </h2>
+                    <p class="p2 overflow step1">
+                      <span>C2E es nuestro valor central.</span>
+                    </p>
+                    <p class="p2 overflow step2">
+                      <span>Acompáñanos en el proyecto C2E a través de diversas actividades y eventos comunitarios :)</span>
+                    </p>
+                    <p class="p2 overflow step3">
+                      <span>¡Tu participación activa en el primer proyecto C2E por primera vez en la historia nos será de gran ayuda!</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="step1">
+                <span class="step-txt"><span class="ani1">1st STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/social_data.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">CONTENIDO DE LOS </span>
+                        <span class="step1">MEDIOS</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow"><span>YouTube, TikTok, canales de animación en las redes sociales.</span></p>
+                    <p class="p2 overflow">
+                      <span>
+                        Comparte y crea desde YouTube a TikTok.<br />
+                        ¡Desbloquea posibilidades creativas para la animación!
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="step2">
+                <span class="step-txt"><span class="ani1">2nd STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/walk_data2.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">BUBBLY </span>
+                        <span class="step1">MINTING</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow"><span>¡Comienza el sistema de gobierno relacionado con BUBBLY Minting!</span></p>
+                    <p class="p2 overflow">
+                      <span
+                        >Se emitirán 5000 colecciones de BUBBLY NFT.<br />¡Las colecciones BUBBLY NFT se anunciarán pronto!<br />¡Únete al universo BnF y obtén beneficios especiales para los
+                        titulares!</span
+                      >
+                    </p>
+                    <a href="#" target="_blank" class="more">OpenSea</a>
+                  </div>
+                </div>
+              </li>
+              <li class="step3">
+                <span class="step-txt"><span class="ani1">3rd STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/coin_data.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">Campaña </span>
+                        <span class="step1">G.I</span>
+                      </div>
+                      <div class="text-wrap">
+                        <span class="step1">('Good Influence' = Buena Influencia)</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow">
+                      <span class="span-wrap">
+                        <span>Proyecto Y.S.S.<br />('You are So Special' = Eres Tan Especial)</span>
+                        <span>Proyecto H.M.H.<br />('Hold My Hand' = Toma Mi Mano)</span>
+                      </span>
+                    </p>
+                    <p class="p2 overflow">
+                      <span>
+                        BnF ofrece una campaña de 'Buena Influencia' conocida como la Campaña G.I.<br />
+                        Creemos que cada uno es especial de alguna manera :)<br />
+                        ¡Acerquémonos a aquellos que necesitan nuestra atención y juntos dejemos huella para una buena influencia!
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="step4">
+                <span class="step-txt"><span class="ani1">4th STEP</span></span>
+                <div class="cont-wrap">
+                  <div class="video-box ani">
+                    <lottie-player src="../resources/json/gamepad_data.json" background="transparent" speed="1" loop autoplay class="player"></lottie-player>
+                  </div>
+                  <div class="text-box ani">
+                    <h2 class="overflow">
+                      <div class="text-wrap">
+                        <span class="step2">Desarrollo de </span>
+                        <span class="step1">plataformas <span class="step2">y</span></span>
+                      </div>
+                      <div class="text-wrap">
+                        <span class="step2">creación de </span>
+                        <span class="step1">ecosistemas</span>
+                      </div>
+                    </h2>
+                    <p class="p1 overflow">
+                      <span>Desarrollo de plataforma de mercado de juegos BnF</span>
+                    </p>
+                    <p class="p2 overflow">
+                      <span>¡La buena voluntad de BnF para la innovación se extiende a la creación de nuestra propia plataforma universal!</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="sec4">
+        <div class="content-inner">
+          <h3 class="overflow"><span class="ani1">SEASON 02</span></h3>
+          <p class="overflow"><span class="ani1">COMING SOON</span></p>
+          <div class="player-wrap ani2">
+            <lottie-player src="../resources/json/card2_data.json" background="transparent" speed="1" loop autoplay class="player ani2"></lottie-player>
+          </div>
+        </div>
+      </section>
+      <section class="sec5">
+        <div class="content-inner">
+          <h2 class="overflow"><span class="ani1">PREGUNTAS MÁS FRECUENTES</span></h2>
+          <ul class="faq-lists ani">
+            <li>
+              <h4>
+                <a href="#">¿Qué tipo de proyecto es BUBBLY?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BUBBLY es el primer proyecto de BnF (BUBBLY AND FRIENDS) LABS, que consisten en 10,000(Diez mil) NFT de génesis de BnF.</p>
+                <p>
+                  BnF LABS está planeando varias campañas y proyectos para compensar los problemas de los NFT existentes y construir un negocio benevolente que cause buena influencia con energía
+                  positiva en lugar de un simple negocio de ganancias, con el propósito que este pueda funcionar como un círculo virtuoso.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">¿Cómo es el mercado actual de NFT y cuáles son sus problemas según el análisis de BnF LABS?</a>
+              </h4>
+              <div class="faq-content">
+                <p>
+                  BnF LABS considera que el mercado actual de NFT representará 1 % del futuro mercado de NFT. Tras combinar NFT, AR/VR y Metaverse, BnF LABS pronostica que el mercado representará un
+                  0,1%.
+                </p>
+                <p>Si consideramos el mercado NFT actual como aquel de primera generación, existen varios problemas.</p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">¿Cuáles son los puntos fuertes del proyecto de NFT de BnF LABS en comparación con otros NFT?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS es un proyecto NFT de 1.5ava ó 2da generación diseñado para resolver varios problemas que ocurren en el mercado actual de NFT de 1ra generación.</p>
+                <p>
+                  BnF LABS ve el valor de la mayoría de los NFT actuales como un "Valor VIP(exclusivo)".<br />
+                  BnF LABS ha preparado varias campañas y proyectos para juntos crear valores significativos y duraderos y mejorar la marca y el sentido de pertenencia de BnF con el propósito que el
+                  valor de BnF NFT no se quede como un "simple valor VIP(exclusivo)".
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">¿Cuáles son las campañas y proyectos de BnF LABS?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS está preparando varias campañas para hacer realidad el valor central de BUBBLY: tener una buena influencia con energía positiva.</p>
+                <p>
+                  - Campaña Y.S.S (Eres Tan Especial)<br />
+                  BnF LABS está preparando un programa de entretenimiento documental genuino que en lugar de ser simplemente competitivo, contenga empatía, amor, aliento y tutoría para ayudar a muchos
+                  con talento que no fueron apoyadas por su entorno.
+                </p>
+                <p>
+                  - Campaña H.M.H (Toma Mi Mano)<br />
+                  BnF LABS se está preparando para que el contenido de BnF no solo consista en donar bienes, sino que consista en ayudar directamente a quienes se encuentren en situaciones difíciles y
+                  se puedan compartir tiempos de sentimientos honestos y sinceros para crear un ciclo virtuoso de buena influencia.
+                </p>
+                <p>
+                  - BnF TV<br />
+                  Todo esto se difundirá por todo el mundo a través de los canales de BnF TV. Además de esto, BnF TV está preparando varios contenidos para las personas modernas que están cansadas de
+                  la ajetreada vida cotidiana, como refranes / contenidos cortos de moda / contenidos cortos cómicos que pueden brindar pequeñas sonrisas, descanso, aliento y consuelo, aunque sea por
+                  poco tiempo.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">¿Cuál es el objetivo final de BnF LABS?</a>
+              </h4>
+              <div class="faq-content">
+                <p>
+                  BnF LABS es, en última instancia, una comunidad de personas influyentes positivas y buenas que conocen y practican el valor del "amor". BUBBLY es nuestro amigo que comparte alegría y
+                  tristeza con amor y consuelo a aquellos que están luchando y están agotados. Además, BUBBLY se preocupa no solo por las personas, sino también por los animales y el medio ambiente.
+                </p>
+                <p>BnF LABS quiere ser amigo de cualquiera que tenga un buen corazón que se ajuste a los valores de BUBBLY. Así, la comunidad y el ecosistema de BnF LABS crecerán cada vez más.</p>
+                <p>Pronto las personas verán la energía positiva de BUBBLY en todo el mundo y verán las cosas asombrosas que se pueden hacer a través de la buena influencia.</p>
+                <p>BUBBLY será el primer, el mejor, el mayor, el de la mejor utilidad (en línea, fuera de línea, metaverso, etc.), sobre todo, el más 'benevolente proyecto de NFT'.</p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">¿Cuáles son los beneficios del titular BUBBLY?</a>
+              </h4>
+              <div class="faq-content">
+                <p>BnF LABS se dedica a varios campos, como proyectos NFT, MEDIOS, capital riesgo e incubación.</p>
+                <p>
+                  Los titulares de BUBBLY, el NFT génesis de BnF LABS, se convierten en miembros especiales que tienen prioridad sobre todos los beneficios y derechos emitidos y tramitados ante BnF
+                  LABS.<br />
+                  Todos los derechos y aquellos de propiedad intelectual se pasan al titular.
+                </p>
+                <p>Al haber emisión de proyectos adicionales de NFT debido a la expansión de la cosmovisión de BUBBLY, todos los titulares recibirán airdrops al respecto.</p>
+                <p>
+                  Los titulares de BUBBLY recibirán una distribución regular de las ganancias del negocio lucrativo de BnF LABS y recibirán todos los artículos y beneficios tanto en línea como fuera
+                  de línea.<br />
+                  p. ej., los detalles de hoteles y resorts, restaurantes, cafés, compras en línea, etc. se divulgarán después de la acuñación(minting).
+                </p>
+                <p>
+                  Solicita para ser parte de la incubación.<br />
+                  Todos los miembros con talento y pasión pueden participar directamente en todos los proyectos de la cosmovisión de BUBBLY. BnF LABS revisa el proyecto o la idea del titular, apoya la
+                  planificación, el desarrollo e incluso el capital riesgo para que los miembros puedan maximizar sus talentos.<br />
+                  En el campo de videos de entretenimiento, los titulares de BUBBLY tienen prioridad.
+                </p>
+              </div>
+            </li>
+            <li>
+              <h4>
+                <a href="#">¿Cuál es la fecha de acuñación(minting) y los precios de BUBBLY?</a>
+              </h4>
+              <div class="faq-content">
+                <p>Próximamente</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <!-- //content -->
+
+    <!-- footer -->
+    <footer id="footer">
+      <div class="content-inner">
+        <h1 class="logo">
+          <a href="#"><img src="../resources/images/logo.png" alt="BNF" /></a>
+        </h1>
+        <div class="text-box">
+          <p>EMAIL. <span>bubblyandfriends@gmail.com</span></p>
+        </div>
+        <div class="sns">
+          <ul>
+            <li>
+              <a href="https://discord.gg/eGBJZ8h4vG" target="_blank">
+                <img src="../resources/images/svg/discord.svg" alt="discord" class="discord" />
+                <span>discord</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@bnf_tv/video/7127253549276351746?is_copy_url=1&is_from_webapp=v1&lang=ko-KR" target="_blank">
+                <img src="../resources/images/svg/tiktok.svg" alt="tiktok" class="tiktok" />
+                <span>tiktok</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/ProjectBubbly" target="_blank">
+                <img src="../resources/images/svg/twitter.svg" alt="twitter" class="twitter" />
+                <span>twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=-wYThIqtTnE" target="_blank">
+                <img src="../resources/images/svg/youtube.svg" alt="youtube" class="youtube" />
+                <span>youtube</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- //footer -->
+  </body>
+</html>

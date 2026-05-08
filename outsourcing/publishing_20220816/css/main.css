@@ -1,0 +1,864 @@
+/* Reset ******************************/
+* {
+  font-family: "Noto Sans KR";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.03rem;
+  line-height: 1.75;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #eceaff;
+  overflow-x: hidden;
+}
+
+header, main, article, section, aside, footer, nav, div, span, ul, ol, li, a, p, form, select, option, input, details {
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Typography ******************************/
+/* Noto Sans KR */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("../fonts/Noto_Sans_KR/NotoSansKR-Regular.otf") format("woff2"), url("../fonts/Noto_Sans_KR/NotoSansKR-Regular.otf") format("woff");
+}
+/* Jua */
+@font-face {
+  font-family: "Jua";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Jua Regular"), local("Jua-Regular"), url("../fonts/Jua/Jua-Regular.ttf") format("woff2"), url("../fonts/Jua/Jua-Regular.ttf") format("woff");
+}
+/* Do Hyeon */
+@font-face {
+  font-family: "Do Hyeon";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Do Hyeon Regular"), local("Do Hyeon-Regular"), url("../fonts/Do_Hyeon/DoHyeon-Regular.ttf") format("woff2"), url("../fonts/Do_Hyeon/DoHyeon-Regular.ttf") format("woff");
+}
+/* Maplestory */
+@font-face {
+  font-family: "Maplestory";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Maplestory Light"), local("Maplestory-Light"), url("../fonts/Maplestory/Maplestory-Light.ttf") format("woff2"), url("../fonts/Maplestory/Maplestory-Light.ttf") format("woff");
+}
+@font-face {
+  font-family: "Maplestory";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Maplestory Bold"), local("Maplestory-Bold"), url("../fonts/Maplestory/Maplestory-Bold.ttf") format("woff2"), url("../fonts/Maplestory/Maplestory-Bold.ttf") format("woff");
+}
+/* Netmarble */
+@font-face {
+  font-family: "netmarbleL";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: local("netmarbleL"), url("../fonts/Netmarble/netmarbleL.ttf") format("woff2"), url("../fonts/Netmarble/netmarbleL.ttf") format("woff");
+}
+@font-face {
+  font-family: "netmarbleM";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("netmarbleM"), url("../fonts/Netmarble/netmarbleM.ttf") format("woff2"), url("../fonts/Netmarble/netmarbleM.ttf") format("woff");
+}
+@font-face {
+  font-family: "netmarbleB";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("netmarbleM"), url("../fonts/Netmarble/netmarbleB.ttf") format("woff2"), url("../fonts/Netmarble/netmarbleB.ttf") format("woff");
+}
+/* Home ******************************/
+.headline .headline__title {
+  font-family: "Jua", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 2px 2px 0 #d3bcbe;
+  line-height: 1.2;
+  color: #3f2e24;
+  padding-top: 30px;
+}
+.headline .headline__title:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 300px;
+  height: 10px;
+  background: url("../images/background-03.jpg") no-repeat center/100% auto;
+  transform: translateX(-50%);
+}
+.headline .headline__title > .headline__emphasis {
+  font-family: "Jua", sans-serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #ef4b70;
+}
+.headline .headline__decription {
+  font-size: 0.75rem;
+  text-align: center;
+  letter-spacing: -0.06rem;
+  line-height: 1;
+  color: #3f2e24;
+  margin-top: 8px;
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px 30px 0 30px;
+}
+.event > .event__quantity {
+  width: 100%;
+}
+.event > .event__quantity:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 240px;
+  background: url("../images/012.png") no-repeat center/95% auto;
+  box-sizing: border-box;
+}
+.event > .event__quantity > .quantity {
+  position: relative;
+  height: 100%;
+  font-family: "Jua", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 54px;
+  color: #5c2216;
+}
+.event > .event__quantity > .quantity:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  height: 60px;
+  background: url("../images/background-05.jpg") no-repeat center/100% auto;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+.event > .event__quantity > .quantity > .quantity_now, .event > .event__quantity > .quantity .quantity_total {
+  font-family: "Jua", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.event > .event__coin {
+  width: 100%;
+}
+.event > .event__coin > .event__coin-list {
+  display: flex;
+  height: 65%;
+}
+.event > .event__coin > .event__coin-list > .coin__remaining-quantity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
+}
+.event > .event__coin > .event__coin-list > .coin__remaining-quantity:before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: url("../images/background-06.jpg") no-repeat center/100% auto;
+  margin: 0 auto;
+}
+.event > .event__coin > .event__coin-list > .coin__remaining-quantity > .button {
+  display: block;
+  width: 80%;
+  height: 30px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  background-color: #fff16c;
+  border: 2px solid #000;
+  border-radius: 50px;
+  box-shadow: 0 4px #000;
+  margin: 0 auto;
+}
+.event > .event__coin > .event__coin-list > .coin__remaining-quantity > .button > .remaining-quantity__number {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.event > .event__coin > .event__coin-list > .modal__remaining-quantity {
+  display: none;
+  position: absolute;
+  top: 318px;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: auto;
+  background-color: #ffebb0;
+  border-radius: 30px;
+  transform: translateX(-50%);
+  padding: 30px 30px 34px 30px;
+  z-index: 10;
+}
+.event > .event__coin > .event__coin-list > .modal__remaining-quantity.show {
+  display: block;
+}
+.event > .event__coin > .event__coin-list > .modal__remaining-quantity > .button_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 0;
+  background: url("../images/button-close.png") no-repeat center/100%;
+}
+.event > .event__coin > .event__coin-list > .modal__remaining-quantity > .modal__text {
+  font-family: "Jua", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px #dfbfe6;
+  margin-top: 10px;
+}
+.event > .event__coin > .event__coin-list > .modal__remaining-quantity > .modal__text > .remaining-quantity__number {
+  font-family: "Jua", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.event > .event__coin > .event__coin-list > .modal__remaining-quantity > .modal__button > .button_draw {
+  display: block;
+  height: 48px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  background-color: #fff16c;
+  border: 2px solid #000;
+  border-radius: 50px;
+  box-shadow: 0 4px #000;
+  padding: 0 30px;
+  margin: 0 auto;
+  margin-top: 11px;
+}
+.event > .event__coin > .event__coin-list > .modal__draw {
+  display: none;
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: 580px;
+  background-color: #ffebb0;
+  border-radius: 30px;
+  transform: translateX(-50%);
+  padding: 30px;
+  z-index: 11;
+}
+.event > .event__coin > .event__coin-list > .modal__draw > .container__roulette {
+  width: 250px !important;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px #000;
+  padding: 10px;
+  margin: 0 auto;
+}
+.event > .event__coin > .event__coin-list > .modal__draw > .container__roulette > .roulette {
+  height: 230px !important;
+  overflow: hidden;
+}
+.event > .event__coin > .event__coin-list > .modal__draw > .container__roulette > .roulette > .roulette-inner > img {
+  width: 100% !important;
+  height: 230px !important;
+}
+.event > .event__coin > .event__coin-list > .modal__draw > .container__roulette > .btn.start {
+  position: absolute;
+  font-size: 0;
+}
+.event > .event__coin > .event__coin-list > .modal__draw > .modal__text {
+  font-family: "Jua", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 2px 2px #dfbfe6;
+  margin-top: 30px;
+}
+.event > .event__coin > .event__coin-list > .modal__draw > .button-confirm {
+  display: block;
+  height: 62px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1.875rem;
+  line-height: 1;
+  background-color: #fff16c;
+  border: 2px solid #000;
+  border-radius: 50px;
+  box-shadow: 0 4px #000;
+  padding: 0 40px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.event > .event__coin > .event__coin-list > .modal__draw.show {
+  display: block;
+}
+.event > .event__coin > .event__coin-list > .coin__button-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
+}
+.event > .event__coin > .event__coin-list > .coin__button-list > .button {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 40px;
+  border: 2px solid #000;
+  border-radius: 50px;
+  box-shadow: 0 4px #000;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.event > .event__coin > .event__coin-list > .coin__button-list > .button:last-child {
+  margin-bottom: 0;
+}
+.event > .event__coin > .event__coin-list > .coin__button-list > .button:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  background: url("../images/chevron.png") no-repeat center/100%;
+  transform: translateY(-50%);
+}
+.event > .event__coin > .event__coin-list > .coin__button-list > .button.button_use {
+  background-color: #f44a6f;
+}
+.event > .event__coin > .event__coin-list > .coin__button-list > .button.button_charge {
+  background-color: #a0db5d;
+}
+.event > .event__coin > .event__check-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 35%;
+  margin-top: 20px;
+}
+.event > .event__coin > .event__check-details > .button {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 40px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 40px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 50px;
+  box-shadow: 0 4px #000;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.event > .event__coin > .event__check-details > .button:after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("../images/chevron.png") no-repeat center/100%;
+  margin-left: 10px;
+}
+
+.prize {
+  position: relative;
+  background-color: #ff4770;
+  margin: 40px 0 0 0;
+}
+.prize:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 18px;
+  background: url("../images/background-07.jpg") no-repeat center/100% auto;
+}
+.prize > .prize__list {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+.prize > .prize__list > .prize__item {
+  width: calc((100% - 48px) / 4);
+}
+.prize > .prize__list > .prize__item > .prize__image {
+  position: relative;
+  height: 65px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #000;
+  margin-bottom: 8px;
+}
+.prize > .prize__list > .prize__item > .prize__image > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 90%;
+  transform: translate(-50%, -50%);
+}
+.prize > .prize__list > .prize__item > .prize__image:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -18px;
+  width: 100%;
+  height: 18px;
+  background: url("../images/002.png") no-repeat center/auto 100%;
+}
+.prize > .prize__list > .prize__item > .prize__text {
+  font-family: "Maplestory", sans-serif;
+  font-size: 0.625rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  background-color: #fff;
+  border: 2px solid #6b2594;
+}
+.prize > .prize__list > .prize__item > .prize__text > br {
+  line-height: 0;
+}
+.prize > .prize__list > .prize__item > .prize__text > .item__quantity_now, .prize > .prize__list > .prize__item > .prize__text .item__quantity_total {
+  font-family: "Maplestory", sans-serif;
+  font-size: 0.625rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.prize > .prize__list:first-of-type {
+  padding: 30px 0 28px 0;
+}
+.prize > .prize__list:first-of-type > .prize__item:first-child > .prize__image:before {
+  top: -22px;
+  height: 22px;
+  background: url("../images/004.png") no-repeat center/auto 100%;
+}
+.prize > .prize__list:first-of-type > .prize__item:nth-child(2) > .prize__image:before, .prize > .prize__list:first-of-type > .prize__item:nth-child(3) > .prize__image:before {
+  background: url("../images/001.png") no-repeat center/auto 100%;
+}
+.prize > .prize__list:nth-of-type(2) > .prize__item:nth-child(3) > .prize__image:before, .prize > .prize__list:nth-of-type(2) > .prize__item:nth-child(4) > .prize__image:before {
+  background: url("../images/003.png") no-repeat center/auto 100%;
+}
+
+@media all and (orientation: landscape) {
+  .event > .event__quantity:before {
+    width: auto;
+    height: 400px;
+    background-size: auto 100%;
+  }
+  .event > .event__quantity > .quantity {
+    height: 70px;
+    font-size: 1.5rem;
+    line-height: 70px;
+    margin-top: 10px;
+  }
+  .event > .event__quantity > .quantity:before {
+    height: 70px;
+  }
+  .event > .event__quantity > .quantity > .quantity_now, .event > .event__quantity > .quantity .quantity_total {
+    font-size: 1.5rem;
+  }
+  .prize:before {
+    height: 37px;
+  }
+}
+@media all and (min-width: 540px) and (orientation: portrait) {
+  .prize:before {
+    height: 26px;
+  }
+}
+@media all and (min-width: 653px) and (orientation: landscape) {
+  .prize:before {
+    height: 30px;
+  }
+}
+@media all and (min-width: 667px) and (orientation: landscape) {
+  .prize:before {
+    height: 31px;
+  }
+}
+@media all and (min-width: 720px) and (orientation: landscape) {
+  .prize:before {
+    height: 33px;
+  }
+}
+@media all and (min-width: 740px) and (orientation: landscape) {
+  .prize:before {
+    height: 34px;
+  }
+}
+@media all and (min-width: 844px) and (orientation: landscape) {
+  .prize:before {
+    height: 39px;
+  }
+}
+@media all and (min-width: 896px) and (orientation: landscape) {
+  .prize:before {
+    height: 41px;
+  }
+}
+@media all and (min-width: 768px) and (orientation: portrait) {
+  .event > .event__quantity:before {
+    width: auto;
+    height: 400px;
+    background-size: auto 100%;
+  }
+  .event > .event__quantity > .quantity {
+    height: 70px;
+    font-size: 1.5rem;
+    line-height: 70px;
+    margin-top: 10px;
+  }
+  .event > .event__quantity > .quantity:before {
+    height: 70px;
+  }
+  .event > .event__quantity > .quantity > .quantity_now, .event > .event__quantity > .quantity .quantity_total {
+    font-size: 1.5rem;
+  }
+  .prize:before {
+    height: 37px;
+  }
+}
+@media all and (min-width: 1024px) and (orientation: landscape) {
+  .prize:before {
+    height: 46px;
+  }
+}
+@media all and (min-width: 1366px) {
+  .headline {
+    position: relative;
+  }
+  .headline:before, .headline:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 32vw;
+    height: 19vh;
+    z-index: -1;
+  }
+  .headline:before {
+    left: 0;
+    background: url("../images/background-01.jpg") no-repeat top left/32vw 100%;
+  }
+  .headline:after {
+    right: 0;
+    background: url("../images/background-02.jpg") no-repeat top left/32vw 100%;
+  }
+  .headline .headline__title {
+    font-size: 4.5rem;
+    padding-top: 30px;
+  }
+  .headline .headline__title:before {
+    width: 440px;
+    height: 14px;
+  }
+  .headline .headline__title > .headline__emphasis {
+    font-size: 4.5rem;
+  }
+  .headline .headline__decription {
+    font-size: 1rem;
+    letter-spacing: -0.03rem;
+  }
+  .event {
+    flex-direction: row;
+    padding: 30px 50px 0 50px;
+  }
+  .event > .event__quantity {
+    width: 50%;
+  }
+  .event > .event__quantity:before {
+    height: 410px;
+    background: url("../images/background-04.jpg") no-repeat center/95% auto;
+  }
+  .event > .event__quantity > .quantity {
+    height: 98px;
+    font-size: 1.6875rem;
+    line-height: 72px;
+    margin-top: 16px;
+  }
+  .event > .event__quantity > .quantity:before {
+    width: 550px;
+    height: 82px;
+    margin-top: 0;
+  }
+  .event > .event__quantity > .quantity > .quantity_now, .event > .event__quantity > .quantity .quantity_total {
+    font-size: 1.6875rem;
+  }
+  .event > .event__coin {
+    width: 50%;
+  }
+  .event > .event__coin > .event__coin-list > .coin__remaining-quantity:before {
+    width: 200px;
+    height: 180px;
+    margin-bottom: 0;
+  }
+  .event > .event__coin > .event__coin-list > .coin__remaining-quantity > .button {
+    height: 62px;
+    font-size: 2rem;
+    line-height: 62px;
+    padding: 0 30px;
+  }
+  .event > .event__coin > .event__coin-list > .coin__remaining-quantity > .button > .remaining-quantity__number {
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .event > .event__coin > .event__coin-list > .modal__remaining-quantity {
+    position: fixed;
+    top: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%);
+    padding: 20px 20px 24px 20px;
+  }
+  .event > .event__coin > .event__coin-list > .modal__remaining-quantity > .modal__text {
+    font-size: 2.5rem;
+  }
+  .event > .event__coin > .event__coin-list > .modal__remaining-quantity > .modal__text > .remaining-quantity__number {
+    font-size: 2.5rem;
+  }
+  .event > .event__coin > .event__coin-list > .modal__remaining-quantity > .modal__button > .button_draw {
+    height: 60px;
+    font-size: 2.5rem;
+  }
+  .event > .event__coin > .event__coin-list > .modal__draw {
+    position: fixed;
+    top: 50%;
+    width: 450px;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+  .event > .event__coin > .event__coin-list > .modal__draw > .container__roulette {
+    width: 200px !important;
+    height: 200px;
+  }
+  .event > .event__coin > .event__coin-list > .modal__draw > .container__roulette > .roulette {
+    height: 180px !important;
+  }
+  .event > .event__coin > .event__coin-list > .modal__draw > .container__roulette > .roulette > .roulette-inner > img {
+    height: 180px !important;
+  }
+  .event > .event__coin > .event__coin-list > .modal__draw > .modal__text {
+    margin-top: 10px;
+  }
+  .event > .event__coin > .event__coin-list > .modal__draw > .button-confirm {
+    margin-top: 10px;
+  }
+  .event > .event__coin > .event__coin-list > .coin__button-list > .button {
+    width: 75%;
+    height: 62px;
+    font-size: 1.875rem;
+    line-height: 62px;
+    padding: 0 30px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .event > .event__coin > .event__coin-list > .coin__button-list > .button:after {
+    width: 22px;
+    height: 22px;
+  }
+  .event > .event__coin > .event__check-details > .button {
+    height: 62px;
+    font-size: 1.875rem;
+    line-height: 62px;
+    border: 2px solid #000;
+    padding: 0 30px;
+  }
+  .event > .event__coin > .event__check-details > .button:after {
+    width: 22px;
+    height: 22px;
+  }
+  .prize:before {
+    height: 70px;
+  }
+  .prize:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 190px;
+    height: 100%;
+    background: url("../images/background-08.jpg") no-repeat center bottom/100% auto;
+  }
+  .prize > .prize__list {
+    width: 950px;
+  }
+  .prize > .prize__list > .prize__item {
+    width: calc((100% - 150px) / 4);
+  }
+  .prize > .prize__list > .prize__item > .prize__image {
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #000;
+    margin-bottom: 16px;
+  }
+  .prize > .prize__list > .prize__item > .prize__image > img {
+    height: 85%;
+  }
+  .prize > .prize__list > .prize__item > .prize__image:before {
+    top: -50px;
+    height: 50px;
+  }
+  .prize > .prize__list > .prize__item > .prize__text {
+    font-size: 1.5rem;
+    border: 4px solid #6b2594;
+  }
+  .prize > .prize__list > .prize__item > .prize__text > .item__quantity_now, .prize > .prize__list > .prize__item > .prize__text .item__quantity_total {
+    font-size: 1.5rem;
+  }
+  .prize > .prize__list:first-of-type {
+    padding: 70px 0 70px 0;
+  }
+  .prize > .prize__list:first-of-type:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    width: 190px;
+    height: 100%;
+    background: url("../images/background-09.jpg") no-repeat center bottom/100% auto;
+  }
+  .prize > .prize__list:first-of-type > .prize__item:first-child > .prize__image:before {
+    top: -60px;
+    height: 60px;
+  }
+}
+/* Sub ******************************/
+.event .event__winningdetails {
+  width: 100%;
+  background-color: #dfbfe6;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.event .event__winningdetails > .title {
+  font-family: "Jua", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #2f1964;
+}
+.event .event__winningdetails > .winningdetails__list {
+  margin-top: 16px;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 3px solid #78787a;
+  padding: 0 4px 8px 4px;
+  margin-bottom: 8px;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item:last-child {
+  margin-bottom: 16px;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item > .winningdetails__image {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px #000;
+  border-radius: 5px;
+  padding: 4px;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item > .winningdetails__title {
+  font-family: "netmarbleM", sans-serif;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item > .button {
+  display: block;
+  position: absolute;
+  right: 4px;
+  height: 40px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1;
+  background-color: #fff16c;
+  border: 2px solid #000;
+  border-radius: 30px;
+  box-shadow: 0 4px #000;
+  padding: 0 36px 0 18px;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item > .button-disabled {
+  background-color: #fff;
+  cursor: default;
+}
+.event .event__winningdetails > .winningdetails__list > .winningdetails__item > .button:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  background: url("../images/chevron.png") no-repeat center/100%;
+  transform: translateY(-50%);
+}
+
+@media all and (min-width: 1366px) {
+  .event .event__winningdetails {
+    width: 50%;
+    padding: 10px 40px;
+    margin-top: 0;
+  }
+  .event .event__winningdetails > .winningdetails__list {
+    margin-top: 16px;
+  }
+  .event .event__winningdetails > .winningdetails__list > .winningdetails__item {
+    padding: 0 20px 8px 20px;
+  }
+  .event .event__winningdetails > .winningdetails__list > .winningdetails__item > .winningdetails__title {
+    margin-left: 30px;
+  }
+  .event .event__winningdetails > .winningdetails__list > .winningdetails__item > .button {
+    right: 20px;
+  }
+}
+/* Common ******************************/
+.hidden-text {
+  position: absolute;
+  font-size: 0;
+}
