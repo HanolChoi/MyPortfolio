@@ -61,8 +61,6 @@ export default function Login({onLogin}: LoginProps) {
                 {errorMessages && <p>{errorMessages}</p>}
 
                 <Button disabled={isLoading} size={"medium"} type={"submit"} variant={"primary"}>{isLoading ? '로그인중...' : '로그인'}</Button>
-                <Button disabled={isLoading} size={"medium"} type={"submit"} variant={"ghost"}>{isLoading ? '로그인중...' : '로그인'}</Button>
-                <Button disabled={isLoading} size={"medium"} type={"submit"} variant={"outline"}>{isLoading ? '로그인중...' : '로그인'}</Button>
             </form>
         </section>
     )
